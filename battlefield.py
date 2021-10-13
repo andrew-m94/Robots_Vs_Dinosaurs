@@ -18,9 +18,12 @@ class Battlefield:
         # no return
         pass
 
-    def dino_turn(self, dinosaur):
-        # no return
-        pass
+    # def dino_turn(self, dinosaur):
+    #     #In work
+    #     self.show_robo_opponent_options()
+    #     opponent = input('Choose which robot to attack: ')
+
+    #     dinosaur.attack(opponent)
 
     def robo_turn(self, robot):
         # no return
@@ -31,8 +34,10 @@ class Battlefield:
         pass
 
     def show_robo_opponent_options(self):
-        # no return
-        pass
+        element = 0
+        for robot in self.fleet.robots:
+            print(f'{self.fleet.robots[element].name}: {self.fleet.robots[element].health}HP Remaining')
+            element += 0
 
     def display_winners(self): 
         # no return
