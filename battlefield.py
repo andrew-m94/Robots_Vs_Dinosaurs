@@ -7,24 +7,31 @@ class Battlefield:
         self.herd = Herd()
 
     def run_game(self):
-        # no return
-        pass
+        self.display_welcome()
+        self.battle()
+        self.display_winners()
 
     def display_welcome(self):
-        # no return
-        pass
+        print('Welcome to Robots Vs Dinosaurs!')
+        print('Each team will take turns attacking opponents using number keys 1-3')
+        input('Press enter to begin!\n')
 
     def battle(self):
         dino_element = 0
         robo_element = 0
 
         while len(self.fleet.robots) != 0 or len(self.herd.dinosaurs) != 0:
-            
-            if dino_element >= len(self.herd.dinosaurs):
-                dino_element = 0
+           
+            if len(self.herd.dinosaurs) != 0:
 
-            self.dino_turn(self.herd.dinosaurs[dino_element])
-            dino_element += 1
+                if dino_element >= len(self.herd.dinosaurs):
+                    dino_element = 0
+
+                self.dino_turn(self.herd.dinosaurs[dino_element])
+                dino_element += 1
+
+            else:
+                break
            
             if len(self.fleet.robots) != 0:
 
@@ -33,6 +40,9 @@ class Battlefield:
 
                 self.robo_turn(self.fleet.robots[robo_element])
                 robo_element += 1
+            
+            else:
+                break
 
     def dino_turn(self, dinosaur):
         self.show_robo_opponent_options()
@@ -71,5 +81,8 @@ class Battlefield:
             option  += 1
 
     def display_winners(self): 
-        # no return
-        pass
+        if len(self.herd.dinosaurs) == 0:
+            print('Robots win!')
+
+        if len(self.fleet.robots) == 0:
+            print('Dinosaurs win!')
