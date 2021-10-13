@@ -8,11 +8,14 @@ class Fleet:
         robot_1 = Robot('bot1')
         robot_1.health = 500
         robot_1.weapon('Gattling Gun',100)
+        self.robots.append(robot_1)
 
         robot_2 = Robot('bot2')
         robot_2.health = 250
         robot_1.weapon('Blaster',75)
+        self.robots.append(robot_2)
 
         robot_3 = Robot('bot3')
         robot_3.health = 300
         robot_1.weapon('Power Fist',70)
+        self.robots.append(robot_3)
