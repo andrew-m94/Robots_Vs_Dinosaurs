@@ -14,7 +14,7 @@ class Battlefield:
     def display_welcome(self):
         print('Welcome to Robots Vs Dinosaurs!')
         print('Each team will take turns attacking opponents using number keys 1-3')
-        input('Press enter to begin!\n')
+        input('Press enter to begin!')
 
     def battle(self):
         dino_element = 0
@@ -46,8 +46,17 @@ class Battlefield:
 
     def dino_turn(self, dinosaur):
         self.show_robo_opponent_options()
-        opponent = int(input('Choose which robot to attack: #'))
+        opponent = 0
 
+        while opponent < 1 or opponent > len(self.fleet.robots):
+            opponent = int(input('Choose which robot to attack: #'))
+
+            if opponent < 1 or opponent > len(self.fleet.robots):
+                continue
+
+            else:
+                break
+        
         dinosaur.attack(self.fleet.robots[opponent-1])
 
         if self.fleet.robots[opponent - 1].health <= 0:
@@ -55,7 +64,16 @@ class Battlefield:
 
     def robo_turn(self, robot):
         self.show_dino_opponent_options()
-        opponent = int(input('Choose which dinosaur to attack: #'))
+        opponent = 0
+        
+        while opponent < 1 or opponent > len(self.herd.dinosaurs):
+            opponent = int(input('Choose which dinosaur to attack: #'))
+
+            if opponent < 1 or opponent > len(self.fleet.robots):
+                continue
+
+            else:
+                break
 
         robot.attack(self.herd.dinosaurs[opponent-1])
 
@@ -65,6 +83,7 @@ class Battlefield:
     def show_dino_opponent_options(self):
         element = 0
         option = 1
+        print('')
 
         for dino in self.herd.dinosaurs:
             print(f'[{option}] {self.herd.dinosaurs[element].name}: {self.herd.dinosaurs[element].health}HP Remaining')
@@ -74,6 +93,7 @@ class Battlefield:
     def show_robo_opponent_options(self):
         element = 0
         option = 1
+        print('')
 
         for robot in self.fleet.robots:
             print(f'[{option}] {self.fleet.robots[element].name}: {self.fleet.robots[element].health}HP Remaining')
