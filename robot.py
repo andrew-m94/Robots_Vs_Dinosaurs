@@ -6,7 +6,7 @@ class Robot:
         self.health = health
         self.armory = []
         self.fill_armory()
-        self.weapon = None
+        self.weapon = None #set through choose_weapon()
 
     def attack(self, dinosaur):
         dinosaur.health -= self.weapon.attack_power
@@ -20,7 +20,7 @@ class Robot:
     
         choice = int(input('Robot team, Choose your weapons!'))
         print('')
-        
+
         self.weapon = self.armory[(choice - 1)]
 
     def fill_armory(self):

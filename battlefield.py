@@ -59,6 +59,7 @@ class Battlefield:
             else:
                 break
         
+        self.dino_attack_name(dinosaur)
         dinosaur.attack(self.fleet.robots[opponent-1])
 
         if self.fleet.robots[opponent - 1].health <= 0:
@@ -116,3 +117,18 @@ class Battlefield:
         for robot in self.fleet.robots:
             self.fleet.robots[element].choose_weapon()
             element += 1
+
+    def dino_attack_name(self, dinosaur):
+        attacks = ('Bite','Headbutt','Tailwhip')
+        options = 1
+        print('')
+
+        for attack_name in attacks:
+            print(f'[{options}] {attack_name}')
+            options += 1
+
+        choice = int(input('Choose an attack!'))
+
+        print(f'\n{dinosaur.name} used {attacks[choice - 1]}!')
+
+
