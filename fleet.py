@@ -7,14 +7,11 @@ class Fleet:
         self.create_fleet()
 
     def create_fleet(self):
-        weapon_one = Weapon('Gattling Gun',100)
-        robot_1 = Robot('bot1', 500, weapon_one)
+        robot_1 = Robot('bot 1', 500)
         self.robots.append(robot_1)
 
-        weapon_two = Weapon('Blaster', 75)
-        robot_2 = Robot('bot2', 250, weapon_two)
+        robot_2 = Robot('bot 2', 250)
         self.robots.append(robot_2)
 
-        weapon_three = Weapon('Power Fist', 70)
-        robot_3 = Robot('bot3', 300, weapon_three)
+        robot_3 = Robot('bot 3', 300)
         self.robots.append(robot_3)

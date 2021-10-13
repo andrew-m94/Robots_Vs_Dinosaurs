@@ -8,6 +8,7 @@ class Battlefield:
 
     def run_game(self):
         self.display_welcome()
+        self.robot_weapons()
         self.battle()
         self.display_winners()
 
@@ -15,6 +16,7 @@ class Battlefield:
         print('Welcome to Robots Vs Dinosaurs!')
         print('Each team will take turns attacking opponents using number keys 1-3')
         input('Press enter to begin!')
+        print('')
 
     def battle(self):
         dino_element = 0
@@ -100,9 +102,17 @@ class Battlefield:
             element += 1
             option  += 1
 
-    def display_winners(self): 
+    def display_winners(self):
+
         if len(self.herd.dinosaurs) == 0:
             print('Robots win!')
 
         if len(self.fleet.robots) == 0:
             print('Dinosaurs win!')
+
+    def robot_weapons(self):
+        element = 0
+        
+        for robot in self.fleet.robots:
+            self.fleet.robots[element].choose_weapon()
+            element += 1
