@@ -14,10 +14,10 @@ class Fleet:
 
         robot_2 = Robot('bot2')
         robot_2.health = 250
-        robot_1.weapon = Weapon('Blaster',75)
+        robot_2.weapon = Weapon('Blaster',75)
         self.robots.append(robot_2)
 
         robot_3 = Robot('bot3')
         robot_3.health = 300
-        robot_1.weapon = Weapon('Power Fist',70)
+        robot_3.weapon = Weapon('Power Fist',70)
         self.robots.append(robot_3)
