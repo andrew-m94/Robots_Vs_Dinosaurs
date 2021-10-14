@@ -53,6 +53,12 @@ class Battlefield:
         opponent = ''
         opponent_choices = ['1','2','3']
 
+        if len(self.fleet.robots) == 2:
+                opponent_choices = ['1','2']
+
+        elif len(self.fleet.robots) == 1:
+                opponent_choices = ['1']
+
         while opponent not in opponent_choices:
             opponent = (input('Choose which robot to attack: #'))
         
@@ -68,6 +74,12 @@ class Battlefield:
 
         opponent = ''
         opponent_choices = ['1','2','3']
+
+        if len(self.herd.dinosaurs) == 2:
+            opponent_choices = ['1','2']
+
+        elif len(self.herd.dinosaurs) == 1:
+            opponent_choices = ['1']
 
         while opponent not in opponent_choices:
             opponent = (input('Choose which dinosaur to attack: #'))
