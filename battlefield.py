@@ -47,41 +47,35 @@ class Battlefield:
                 break
 
     def dino_turn(self, dinosaur):
+        print(f'\n{dinosaur.name} is attacking!')
         self.show_robo_opponent_options()
-        opponent = 0
 
-        while opponent < 1 or opponent > len(self.fleet.robots):
-            opponent = int(input('Choose which robot to attack: #'))
+        opponent = ''
+        opponent_choices = ['1','2','3']
 
-            if opponent < 1 or opponent > len(self.fleet.robots):
-                continue
-
-            else:
-                break
+        while opponent not in opponent_choices:
+            opponent = (input('Choose which robot to attack: #'))
         
         self.dino_attack_name(dinosaur)
-        dinosaur.attack(self.fleet.robots[opponent-1])
+        dinosaur.attack(self.fleet.robots[int(opponent)-1])
 
-        if self.fleet.robots[opponent - 1].health <= 0:
-            self.fleet.robots.remove(self.fleet.robots[opponent - 1])
+        if self.fleet.robots[int(opponent) - 1].health <= 0:
+            self.fleet.robots.remove(self.fleet.robots[int(opponent) - 1])
 
     def robo_turn(self, robot):
+        print(f'\n{robot.name} is attacking!')
         self.show_dino_opponent_options()
-        opponent = 0
-        
-        while opponent < 1 or opponent > len(self.herd.dinosaurs):
-            opponent = int(input('Choose which dinosaur to attack: #'))
 
-            if opponent < 1 or opponent > len(self.fleet.robots):
-                continue
+        opponent = ''
+        opponent_choices = ['1','2','3']
 
-            else:
-                break
+        while opponent not in opponent_choices:
+            opponent = (input('Choose which dinosaur to attack: #'))
 
-        robot.attack(self.herd.dinosaurs[opponent-1])
+        robot.attack(self.herd.dinosaurs[int(opponent)-1])
 
-        if self.herd.dinosaurs[opponent - 1].health <= 0:
-            self.herd.dinosaurs.remove(self.herd.dinosaurs[opponent - 1])
+        if self.herd.dinosaurs[int(opponent) - 1].health <= 0:
+            self.herd.dinosaurs.remove(self.herd.dinosaurs[int(opponent) - 1])
 
     def show_dino_opponent_options(self):
         element = 0
@@ -127,8 +121,12 @@ class Battlefield:
             print(f'[{options}] {attack_name}')
             options += 1
 
-        choice = int(input('Choose an attack!'))
+        attack_choices = ['1','2','3']
+        choice = ''
 
-        print(f'\n{dinosaur.name} used {attacks[choice - 1]}!')
+        while choice not in attack_choices:
+            choice = (input('Choose an attack!'))
+
+        print(f'\n{dinosaur.name} used {attacks[int(choice) - 1]}!')
 
 

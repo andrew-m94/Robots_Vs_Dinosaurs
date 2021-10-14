@@ -7,11 +7,11 @@ class Fleet:
         self.create_fleet()
 
     def create_fleet(self):
-        robot_1 = Robot('bot 1', 500)
+        robot_1 = Robot('Bot 1', 500)
         self.robots.append(robot_1)
 
-        robot_2 = Robot('bot 2', 250)
+        robot_2 = Robot('Bot 2', 250)
         self.robots.append(robot_2)
 
-        robot_3 = Robot('bot 3', 300)
+        robot_3 = Robot('Bot 3', 300)
         self.robots.append(robot_3)
